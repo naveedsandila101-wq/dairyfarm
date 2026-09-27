@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/gallery",
+	"title": "Farm Gallery",
+	"category": "dairyfarm",
+	"icon": "format-gallery",
+	"description": "Mosaic or grid photo gallery with an accessible lightbox.",
+	"keywords": [ "photos", "images", "lightbox" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Life on the Farm" },
+		"heading": { "type": "string", "default": "A glimpse into our everyday" },
+		"intro": { "type": "string", "default": "Green pastures, curious calves and early mornings in the creamery — this is where your dairy begins." },
+		"layout": { "type": "string", "default": "mosaic" },
+		"lightbox": { "type": "boolean", "default": true },
+		"buttonLabel": { "type": "string", "default": "Follow us on Instagram" },
+		"buttonUrl": { "type": "string", "default": "" },
+		"images": {
+			"type": "array",
+			"default": [
+				{ "image": {}, "caption": "Morning grazing in the east meadow" },
+				{ "image": {}, "caption": "Our newest calves" },
+				{ "image": {}, "caption": "Inside the creamery" },
+				{ "image": {}, "caption": "Hand-pressed cheddar" },
+				{ "image": {}, "caption": "Glass bottles ready for delivery" },
+				{ "image": {}, "caption": "Family open day" }
+			]
+		}
+	},
+	"dairyfarm": {
+		"tone": "cream",
+		"sectionId": "gallery",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "text", "label": "Heading" },
+			{ "key": "intro", "type": "textarea", "label": "Intro" },
+			{ "key": "layout", "type": "select", "label": "Layout", "options": [ { "label": "Mosaic", "value": "mosaic" }, { "label": "Even grid", "value": "grid" } ] },
+			{ "key": "lightbox", "type": "toggle", "label": "Open images in a lightbox" },
+			{ "key": "buttonLabel", "type": "text", "label": "Button label" },
+			{ "key": "buttonUrl", "type": "url", "label": "Button link", "help": "Leave empty to use the Instagram URL from the Customizer." },
+			{
+				"key": "images",
+				"type": "repeater",
+				"label": "Photos",
+				"itemLabel": "Photo",
+				"titleKey": "caption",
+				"max": 12,
+				"panel": "Photos",
+				"fields": [
+					{ "key": "image", "type": "image", "label": "Image" },
+					{ "key": "caption", "type": "text", "label": "Caption" }
+				]
+			}
+		]
+	}
+}

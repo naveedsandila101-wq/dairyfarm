@@ -1,0 +1,84 @@
+/* Block settings sidebar UI for Dairyfarm section blocks. */
+
+.df-field-image {
+	display: grid;
+	gap: 8px;
+}
+
+.df-field-image__preview {
+	display: block;
+	width: 100%;
+	padding: 0;
+	overflow: hidden;
+	background: #f0f0f0;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.df-field-image__preview img {
+	display: block;
+	width: 100%;
+	height: 140px;
+	object-fit: cover;
+}
+
+.df-field-image__actions {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.df-repeater {
+	margin-bottom: 16px;
+}
+
+.df-repeater__label {
+	margin: 0 0 4px;
+	font-size: 11px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.df-repeater__help {
+	margin: 0 0 8px;
+	font-size: 12px;
+	color: #757575;
+}
+
+.df-repeater .df-repeater__item.components-panel__body {
+	margin-bottom: 6px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+}
+
+.df-repeater .df-repeater__item .components-panel__body-title {
+	margin: 0 !important;
+}
+
+.df-repeater .df-repeater__item .components-panel__body-toggle.components-button {
+	padding: 12px 40px 12px 12px;
+	font-size: 13px;
+}
+
+.df-repeater__item .components-base-control {
+	margin-bottom: 12px;
+}
+
+.df-repeater__tools {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding-top: 8px;
+	border-top: 1px solid #f0f0f0;
+}
+
+.df-repeater__tools .is-link {
+	margin-left: auto;
+}
+
+.df-repeater__add {
+	width: 100%;
+	justify-content: center;
+	margin-top: 4px;
+}

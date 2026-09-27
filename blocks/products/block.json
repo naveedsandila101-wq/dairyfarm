@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/products",
+	"title": "Our Products",
+	"category": "dairyfarm",
+	"icon": "products",
+	"description": "Product grid pulled from Products, with optional category filter tabs.",
+	"keywords": [ "shop", "catalogue", "milk", "cheese" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Our Products" },
+		"heading": { "type": "string", "default": "Fresh from our creamery" },
+		"intro": { "type": "string", "default": "Small-batch dairy made every morning from our own herd's milk — delivered chilled to your door or ready to collect at the farm shop." },
+		"count": { "type": "number", "default": 6 },
+		"category": { "type": "string", "default": "" },
+		"orderby": { "type": "string", "default": "menu_order" },
+		"showFilters": { "type": "boolean", "default": true },
+		"buttonLabel": { "type": "string", "default": "Order" },
+		"footerLabel": { "type": "string", "default": "View Full Range" },
+		"footerUrl": { "type": "string", "default": "" }
+	},
+	"dairyfarm": {
+		"tone": "white",
+		"sectionId": "products",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "text", "label": "Heading" },
+			{ "key": "intro", "type": "textarea", "label": "Intro" },
+			{ "key": "count", "type": "number", "label": "Number of products", "min": 3, "max": 12, "panel": "Products Query", "help": "Products are managed under Products in the admin menu." },
+			{ "key": "category", "type": "term", "taxonomy": "df_product_cat", "label": "Only show category", "allLabel": "All categories", "panel": "Products Query" },
+			{ "key": "orderby", "type": "select", "label": "Order by", "panel": "Products Query", "options": [ { "label": "Manual order (Order attribute)", "value": "menu_order" }, { "label": "Newest first", "value": "date" }, { "label": "Title A–Z", "value": "title" } ] },
+			{ "key": "showFilters", "type": "toggle", "label": "Show category filter tabs", "panel": "Products Query" },
+			{ "key": "buttonLabel", "type": "text", "label": "Card button label", "panel": "Buttons" },
+			{ "key": "footerLabel", "type": "text", "label": "Bottom button label", "panel": "Buttons" },
+			{ "key": "footerUrl", "type": "url", "label": "Bottom button link", "help": "Leave empty to link to the products archive. Clear the label to hide the button.", "panel": "Buttons" }
+		]
+	}
+}

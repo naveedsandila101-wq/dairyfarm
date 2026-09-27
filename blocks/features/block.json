@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/features",
+	"title": "Why Choose Us",
+	"category": "dairyfarm",
+	"icon": "awards",
+	"description": "Grid of key benefits with icons.",
+	"keywords": [ "features", "benefits", "usp" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Why Choose Us" },
+		"heading": { "type": "string", "default": "Dairy the way nature intended" },
+		"intro": { "type": "string", "default": "We combine traditional farming values with modern food-safety standards to bring you dairy you can trust, every single day." },
+		"columns": { "type": "number", "default": 4 },
+		"items": {
+			"type": "array",
+			"default": [
+				{ "icon": "leaf", "title": "100% Grass-Fed", "text": "Our cows graze freely on open, chemical-free pastures for most of the year." },
+				{ "icon": "shield", "title": "No Hormones or Antibiotics", "text": "Clean milk with nothing added — tested in our lab before every bottling." },
+				{ "icon": "truck", "title": "Same-Day Delivery", "text": "Milked at dawn and at your doorstep before breakfast in chilled vans." },
+				{ "icon": "heart", "title": "Animal Welfare First", "text": "Spacious barns, vet care and names for every cow — happy cows make better milk." }
+			]
+		}
+	},
+	"dairyfarm": {
+		"tone": "mint",
+		"sectionId": "why-us",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "text", "label": "Heading" },
+			{ "key": "intro", "type": "textarea", "label": "Intro" },
+			{ "key": "columns", "type": "number", "label": "Columns on desktop", "min": 2, "max": 4 },
+			{
+				"key": "items",
+				"type": "repeater",
+				"label": "Benefits",
+				"itemLabel": "Benefit",
+				"titleKey": "title",
+				"max": 8,
+				"panel": "Benefits",
+				"fields": [
+					{ "key": "icon", "type": "icon", "label": "Icon", "default": "leaf" },
+					{ "key": "title", "type": "text", "label": "Title" },
+					{ "key": "text", "type": "textarea", "label": "Description" }
+				]
+			}
+		]
+	}
+}

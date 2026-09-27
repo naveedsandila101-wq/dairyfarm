@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/faq",
+	"title": "FAQ",
+	"category": "dairyfarm",
+	"icon": "editor-help",
+	"description": "Accessible accordion of frequently asked questions with FAQ structured data.",
+	"keywords": [ "questions", "accordion", "help" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "FAQ" },
+		"heading": { "type": "string", "default": "Questions? We've got answers" },
+		"intro": { "type": "string", "default": "Everything you need to know about our dairy, deliveries and farm visits." },
+		"contactTitle": { "type": "string", "default": "Still have a question?" },
+		"contactText": { "type": "string", "default": "Our family team is happy to help — call or email us any day of the week." },
+		"contactLabel": { "type": "string", "default": "Contact Us" },
+		"contactUrl": { "type": "string", "default": "#contact" },
+		"schema": { "type": "boolean", "default": true },
+		"items": {
+			"type": "array",
+			"default": [
+				{ "question": "Is your milk pasteurised?", "answer": "Yes. We use gentle low-temperature pasteurisation that keeps the natural flavour and nutrients while ensuring complete safety. We never add preservatives." },
+				{ "question": "Which areas do you deliver to?", "answer": "We deliver every morning within a 40 km radius of the farm. Enter your postcode at checkout to confirm your delivery day." },
+				{ "question": "Can I pause or change my subscription?", "answer": "Of course. You can pause, skip or change your order any time before 8pm for the next morning's delivery." },
+				{ "question": "How do the returnable glass bottles work?", "answer": "Simply rinse your empty bottles and leave them out on your next delivery day. We collect, sterilise and reuse them." },
+				{ "question": "Can we visit the farm?", "answer": "Yes! Our farm shop is open Monday to Saturday and we host family open days every month — see our news page for dates." }
+			]
+		}
+	},
+	"dairyfarm": {
+		"tone": "mint",
+		"sectionId": "faq",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "text", "label": "Heading" },
+			{ "key": "intro", "type": "textarea", "label": "Intro" },
+			{ "key": "schema", "type": "toggle", "label": "Output FAQ structured data (SEO)" },
+			{
+				"key": "items",
+				"type": "repeater",
+				"label": "Questions",
+				"itemLabel": "Question",
+				"titleKey": "question",
+				"max": 20,
+				"panel": "Questions",
+				"fields": [
+					{ "key": "question", "type": "text", "label": "Question" },
+					{ "key": "answer", "type": "textarea", "label": "Answer", "rows": 4 }
+				]
+			},
+			{ "key": "contactTitle", "type": "text", "label": "Help card title", "panel": "Help Card" },
+			{ "key": "contactText", "type": "textarea", "label": "Help card text", "panel": "Help Card" },
+			{ "key": "contactLabel", "type": "text", "label": "Button label", "panel": "Help Card" },
+			{ "key": "contactUrl", "type": "url", "label": "Button link", "panel": "Help Card" }
+		]
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/cta",
+	"title": "Call to Action / Newsletter",
+	"category": "dairyfarm",
+	"icon": "megaphone",
+	"description": "Conversion banner with buttons, contact details or an embedded form (newsletter / enquiry).",
+	"keywords": [ "cta", "newsletter", "subscribe", "contact" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Fresh Every Morning" },
+		"heading": { "type": "string", "default": "Start your farm-fresh delivery today" },
+		"text": { "type": "string", "default": "Choose your favourites, pick a delivery day and enjoy real farm dairy at your door. Your first bottle of milk is on us." },
+		"primaryLabel": { "type": "string", "default": "Start My Subscription" },
+		"primaryUrl": { "type": "string", "default": "#products" },
+		"secondaryLabel": { "type": "string", "default": "Call the Farm" },
+		"secondaryUrl": { "type": "string", "default": "" },
+		"formShortcode": { "type": "string", "default": "" },
+		"note": { "type": "string", "default": "No commitment · Pause or cancel any time" },
+		"showContact": { "type": "boolean", "default": true },
+		"image": { "type": "object", "default": {} }
+	},
+	"dairyfarm": {
+		"tone": "brand",
+		"sectionId": "contact",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "textarea", "label": "Heading", "rows": 2 },
+			{ "key": "text", "type": "textarea", "label": "Text" },
+			{ "key": "note", "type": "text", "label": "Small print" },
+			{ "key": "primaryLabel", "type": "text", "label": "Primary button label", "panel": "Buttons" },
+			{ "key": "primaryUrl", "type": "url", "label": "Primary button link", "panel": "Buttons" },
+			{ "key": "secondaryLabel", "type": "text", "label": "Secondary button label", "panel": "Buttons" },
+			{ "key": "secondaryUrl", "type": "url", "label": "Secondary button link", "help": "Leave empty to dial the phone number from the Customizer.", "panel": "Buttons" },
+			{ "key": "formShortcode", "type": "text", "label": "Form shortcode (optional)", "help": "Paste a newsletter or contact form shortcode, e.g. [contact-form-7 id=\"123\"]. Replaces the buttons.", "panel": "Form" },
+			{ "key": "showContact", "type": "toggle", "label": "Show phone, email & address", "panel": "Form" },
+			{ "key": "image", "type": "image", "label": "Side image (optional)", "panel": "Image" }
+		]
+	}
+}

@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/hero",
+	"title": "Hero",
+	"category": "dairyfarm",
+	"icon": "cover-image",
+	"description": "Main introduction with headline, buttons, image and key figures.",
+	"keywords": [ "banner", "intro", "header" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false, "multiple": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"layout": { "type": "string", "default": "split" },
+		"eyebrow": { "type": "string", "default": "Pasture-raised · Family-owned since 1987" },
+		"heading": { "type": "string", "default": "Pure Milk From <span>Happy Cows</span> To Your Table" },
+		"text": { "type": "string", "default": "Fresh dairy from our grass-fed herd — milked at dawn, gently pasteurised and delivered to your door the same day. No additives, no shortcuts, just honest farm goodness." },
+		"primaryLabel": { "type": "string", "default": "Shop Fresh Dairy" },
+		"primaryUrl": { "type": "string", "default": "#products" },
+		"secondaryLabel": { "type": "string", "default": "Visit Our Farm" },
+		"secondaryUrl": { "type": "string", "default": "#about" },
+		"image": { "type": "object", "default": {} },
+		"overlay": { "type": "number", "default": 45 },
+		"badgeTitle": { "type": "string", "default": "100% Grass-Fed" },
+		"badgeText": { "type": "string", "default": "Certified organic pastures" },
+		"stats": {
+			"type": "array",
+			"default": [
+				{ "value": "2,400 L", "label": "Fresh milk every day" },
+				{ "value": "350+", "label": "Happy, free-roaming cows" },
+				{ "value": "4.9/5", "label": "Average customer rating" }
+			]
+		}
+	},
+	"dairyfarm": {
+		"tone": "white",
+		"sectionId": "top",
+		"fields": [
+			{ "key": "layout", "type": "select", "label": "Layout", "options": [ { "label": "Split – text and image side by side", "value": "split" }, { "label": "Cover – full-width background image", "value": "cover" } ] },
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "textarea", "label": "Headline", "help": "Wrap words in <span>…</span> to highlight them in brand green.", "rows": 2 },
+			{ "key": "text", "type": "textarea", "label": "Intro text", "rows": 4 },
+			{ "key": "primaryLabel", "type": "text", "label": "Primary button label", "panel": "Buttons" },
+			{ "key": "primaryUrl", "type": "url", "label": "Primary button link", "panel": "Buttons" },
+			{ "key": "secondaryLabel", "type": "text", "label": "Secondary button label", "panel": "Buttons" },
+			{ "key": "secondaryUrl", "type": "url", "label": "Secondary button link", "panel": "Buttons" },
+			{ "key": "image", "type": "image", "label": "Hero image", "help": "Landscape, at least 1600px wide.", "panel": "Image" },
+			{ "key": "overlay", "type": "number", "label": "Dark overlay % (cover layout)", "min": 0, "max": 90, "panel": "Image" },
+			{ "key": "badgeTitle", "type": "text", "label": "Floating badge title", "panel": "Image" },
+			{ "key": "badgeText", "type": "text", "label": "Floating badge text", "panel": "Image" },
+			{
+				"key": "stats",
+				"type": "repeater",
+				"label": "Key figures",
+				"itemLabel": "Figure",
+				"titleKey": "value",
+				"max": 4,
+				"panel": "Key Figures",
+				"fields": [
+					{ "key": "value", "type": "text", "label": "Value" },
+					{ "key": "label", "type": "text", "label": "Label" }
+				]
+			}
+		]
+	}
+}

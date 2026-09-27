@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/testimonials",
+	"title": "Customer Reviews",
+	"category": "dairyfarm",
+	"icon": "format-quote",
+	"description": "Customer reviews pulled from Reviews, with an optional rating summary.",
+	"keywords": [ "testimonials", "reviews", "ratings" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Customer Reviews" },
+		"heading": { "type": "string", "default": "Loved by families across the valley" },
+		"intro": { "type": "string", "default": "Real words from the people who start their day with our dairy." },
+		"count": { "type": "number", "default": 3 },
+		"showSummary": { "type": "boolean", "default": true },
+		"ratingValue": { "type": "string", "default": "4.9" },
+		"ratingText": { "type": "string", "default": "Average from 1,200+ verified customer reviews" }
+	},
+	"dairyfarm": {
+		"tone": "white",
+		"sectionId": "reviews",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "text", "label": "Heading" },
+			{ "key": "intro", "type": "textarea", "label": "Intro" },
+			{ "key": "count", "type": "number", "label": "Number of reviews", "min": 1, "max": 9, "help": "Reviews are managed under Reviews in the admin menu." },
+			{ "key": "showSummary", "type": "toggle", "label": "Show rating summary", "panel": "Rating Summary" },
+			{ "key": "ratingValue", "type": "text", "label": "Average rating", "panel": "Rating Summary" },
+			{ "key": "ratingText", "type": "text", "label": "Summary text", "panel": "Rating Summary" }
+		]
+	}
+}

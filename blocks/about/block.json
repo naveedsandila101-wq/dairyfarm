@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/about",
+	"title": "About Us",
+	"category": "dairyfarm",
+	"icon": "groups",
+	"description": "Farm story with images, mission highlight and key points.",
+	"keywords": [ "story", "mission", "about" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"imagePosition": { "type": "string", "default": "left" },
+		"image": { "type": "object", "default": {} },
+		"imageSecondary": { "type": "object", "default": {} },
+		"experienceValue": { "type": "string", "default": "35+" },
+		"experienceLabel": { "type": "string", "default": "Years of family farming" },
+		"eyebrow": { "type": "string", "default": "Our Story & Mission" },
+		"heading": { "type": "string", "default": "Three generations of caring for the land, the herd and your family" },
+		"text": { "type": "string", "default": "What began in 1987 with twelve cows and a milk churn is today a modern, family-run dairy. We still believe great milk starts with healthy soil, rich pastures and cows that are treated with respect.\n\nEvery bottle is traceable to our own herd, processed in our on-farm creamery and delivered fresh within hours." },
+		"points": {
+			"type": "array",
+			"default": [
+				{ "text": "Certified organic pastures & feed" },
+				{ "text": "On-farm creamery and quality lab" },
+				{ "text": "Glass bottles — returned, washed, reused" },
+				{ "text": "Solar-powered milking parlour" }
+			]
+		},
+		"highlightTitle": { "type": "string", "default": "Our Promise" },
+		"highlightText": { "type": "string", "default": "Fresh, nutritious dairy produced responsibly — while supporting local families, fair farming and a healthier planet." },
+		"buttonLabel": { "type": "string", "default": "Meet the Family" },
+		"buttonUrl": { "type": "string", "default": "#process" }
+	},
+	"dairyfarm": {
+		"tone": "cream",
+		"sectionId": "about",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "textarea", "label": "Heading", "rows": 2 },
+			{ "key": "text", "type": "textarea", "label": "Story", "help": "Leave an empty line between paragraphs.", "rows": 8 },
+			{ "key": "buttonLabel", "type": "text", "label": "Button label" },
+			{ "key": "buttonUrl", "type": "url", "label": "Button link" },
+			{ "key": "imagePosition", "type": "select", "label": "Image position", "panel": "Images", "options": [ { "label": "Left", "value": "left" }, { "label": "Right", "value": "right" } ] },
+			{ "key": "image", "type": "image", "label": "Main image (portrait)", "panel": "Images" },
+			{ "key": "imageSecondary", "type": "image", "label": "Small overlapping image (optional)", "panel": "Images" },
+			{ "key": "experienceValue", "type": "text", "label": "Badge value", "panel": "Images" },
+			{ "key": "experienceLabel", "type": "text", "label": "Badge label", "panel": "Images" },
+			{ "key": "highlightTitle", "type": "text", "label": "Highlight title", "panel": "Highlight & Points" },
+			{ "key": "highlightText", "type": "textarea", "label": "Highlight text", "panel": "Highlight & Points" },
+			{
+				"key": "points",
+				"type": "repeater",
+				"label": "Checklist points",
+				"itemLabel": "Point",
+				"titleKey": "text",
+				"max": 8,
+				"panel": "Highlight & Points",
+				"fields": [ { "key": "text", "type": "text", "label": "Text" } ]
+			}
+		]
+	}
+}

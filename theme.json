@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": false,
+		"layout": { "contentSize": "760px", "wideSize": "1200px" },
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"palette": [
+				{ "slug": "brand", "color": "#2E8B3E", "name": "Brand Green" },
+				{ "slug": "brand-dark", "color": "#1E6B2D", "name": "Deep Green" },
+				{ "slug": "forest", "color": "#14281D", "name": "Forest" },
+				{ "slug": "mint", "color": "#EEF6EE", "name": "Mint" },
+				{ "slug": "cream", "color": "#F8F5EC", "name": "Cream" },
+				{ "slug": "butter", "color": "#F2C14E", "name": "Butter" },
+				{ "slug": "ink", "color": "#1B2420", "name": "Ink" },
+				{ "slug": "muted", "color": "#5F6B64", "name": "Muted" },
+				{ "slug": "white", "color": "#FFFFFF", "name": "White" }
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fontFamilies": [
+				{ "slug": "sans", "name": "Plus Jakarta Sans", "fontFamily": "\"Plus Jakarta Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif" }
+			],
+			"fontSizes": [
+				{ "slug": "small", "size": "0.875rem", "name": "Small" },
+				{ "slug": "medium", "size": "1.0625rem", "name": "Medium" },
+				{ "slug": "large", "size": "1.375rem", "name": "Large" },
+				{ "slug": "x-large", "size": "clamp(1.75rem, 3vw, 2.25rem)", "name": "Extra Large" }
+			]
+		},
+		"spacing": { "units": [ "px", "rem", "%", "vw" ] }
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/process",
+	"title": "Farm to Table Process",
+	"category": "dairyfarm",
+	"icon": "editor-ol",
+	"description": "Numbered steps explaining how your dairy is produced.",
+	"keywords": [ "steps", "how it works", "timeline" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "How We Farm" },
+		"heading": { "type": "string", "default": "From our pasture to your fridge in under 12 hours" },
+		"intro": { "type": "string", "default": "Complete transparency at every step — so you always know exactly where your milk comes from." },
+		"steps": {
+			"type": "array",
+			"default": [
+				{ "icon": "sun", "title": "Graze", "text": "Our herd grazes on open, pesticide-free pastures from spring to late autumn." },
+				{ "icon": "droplet", "title": "Milk", "text": "Gentle, stress-free milking at dawn in our clean, solar-powered parlour." },
+				{ "icon": "thermometer", "title": "Test & Pasteurise", "text": "Lab-tested for purity, then gently pasteurised to lock in taste and nutrients." },
+				{ "icon": "truck", "title": "Deliver", "text": "Bottled on the farm and delivered chilled to your door the same morning." }
+			]
+		}
+	},
+	"dairyfarm": {
+		"tone": "white",
+		"sectionId": "process",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "text", "label": "Heading" },
+			{ "key": "intro", "type": "textarea", "label": "Intro" },
+			{
+				"key": "steps",
+				"type": "repeater",
+				"label": "Steps",
+				"itemLabel": "Step",
+				"titleKey": "title",
+				"max": 6,
+				"panel": "Steps",
+				"fields": [
+					{ "key": "icon", "type": "icon", "label": "Icon", "default": "leaf" },
+					{ "key": "title", "type": "text", "label": "Title" },
+					{ "key": "text", "type": "textarea", "label": "Description" }
+				]
+			}
+		]
+	}
+}

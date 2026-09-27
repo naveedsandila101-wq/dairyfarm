@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/stats",
+	"title": "Stats Band",
+	"category": "dairyfarm",
+	"icon": "chart-bar",
+	"description": "Full-width band of animated key numbers.",
+	"keywords": [ "numbers", "counter", "figures" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"items": {
+			"type": "array",
+			"default": [
+				{ "value": "35", "suffix": "+", "label": "Years of family farming" },
+				{ "value": "350", "suffix": "+", "label": "Grass-fed cows" },
+				{ "value": "12000", "suffix": "", "label": "Families served weekly" },
+				{ "value": "100", "suffix": "%", "label": "Recyclable glass bottles" }
+			]
+		}
+	},
+	"dairyfarm": {
+		"tone": "brand",
+		"sectionId": "",
+		"fields": [
+			{
+				"key": "items",
+				"type": "repeater",
+				"label": "Figures",
+				"help": "Use digits only in Value so it can animate (e.g. 12000). Put symbols in Suffix.",
+				"itemLabel": "Figure",
+				"titleKey": "label",
+				"max": 4,
+				"fields": [
+					{ "key": "value", "type": "text", "label": "Value" },
+					{ "key": "suffix", "type": "text", "label": "Suffix (+, %, L)" },
+					{ "key": "label", "type": "text", "label": "Label" }
+				]
+			}
+		]
+	}
+}

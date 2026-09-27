@@ -1,0 +1,26 @@
+/* Editor canvas tweaks (loaded via add_editor_style, scoped to the canvas). */
+
+body {
+	font-family: var(--df-font);
+	color: var(--df-ink);
+}
+
+/* Server-rendered sections sit flush, like on the front end. */
+.df-editor-preview {
+	margin-block: 0 !important;
+}
+
+.df-editor-preview .df-section {
+	margin: 0;
+}
+
+/* Hint that a section is clickable/selectable. */
+.df-editor-preview:hover {
+	outline: 1px dashed rgba(46, 139, 62, .5);
+	outline-offset: -1px;
+}
+
+/* Keep lightbox links and buttons looking normal inside the disabled preview. */
+.df-editor-preview a {
+	pointer-events: none;
+}

@@ -8,6 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $dairyfarm_phone = dairyfarm_mod( 'phone' );
+$dairyfarm_tel   = $dairyfarm_phone ? 'tel:' . preg_replace( '/[^\d+]/', '', $dairyfarm_phone ) : '';
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -22,15 +23,18 @@ $dairyfarm_phone = dairyfarm_mod( 'phone' );
 <?php if ( dairyfarm_mod( 'topbar_enabled' ) ) : ?>
 	<div class="df-topbar">
 		<div class="df-container df-topbar__inner">
-			<p class="df-topbar__text"><?php echo esc_html( dairyfarm_mod( 'topbar_text' ) ); ?></p>
-			<ul class="df-topbar__meta" role="list">
-				<?php if ( $dairyfarm_phone ) : ?>
-					<li><?php echo dairyfarm_icon( 'phone' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><a href="tel:<?php echo esc_attr( preg_replace( '/[^\d+]/', '', $dairyfarm_phone ) ); ?>"><?php echo esc_html( $dairyfarm_phone ); ?></a></li>
-				<?php endif; ?>
-				<?php if ( dairyfarm_mod( 'hours' ) ) : ?>
-					<li><?php echo dairyfarm_icon( 'clock' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php echo esc_html( dairyfarm_mod( 'hours' ) ); ?></li>
-				<?php endif; ?>
-			</ul>
+			<p class="df-topbar__text"><?php echo dairyfarm_icon( 'leaf' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><span><?php echo esc_html( dairyfarm_mod( 'topbar_text' ) ); ?></span></p>
+			<div class="df-topbar__side">
+				<ul class="df-topbar__meta" role="list">
+					<?php if ( dairyfarm_mod( 'hours' ) ) : ?>
+						<li><?php echo dairyfarm_icon( 'clock' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php echo esc_html( dairyfarm_mod( 'hours' ) ); ?></li>
+					<?php endif; ?>
+					<?php if ( dairyfarm_mod( 'email' ) ) : ?>
+						<li><?php echo dairyfarm_icon( 'mail' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><a href="mailto:<?php echo esc_attr( antispambot( dairyfarm_mod( 'email' ) ) ); ?>"><?php echo esc_html( antispambot( dairyfarm_mod( 'email' ) ) ); ?></a></li>
+					<?php endif; ?>
+				</ul>
+				<?php dairyfarm_social_links(); ?>
+			</div>
 		</div>
 	</div>
 <?php endif; ?>
@@ -54,12 +58,24 @@ $dairyfarm_phone = dairyfarm_mod( 'phone' );
 			);
 			?>
 			<div class="df-nav__mobile-cta">
-				<?php echo dairyfarm_button( dairyfarm_mod( 'header_cta_label' ), dairyfarm_mod( 'header_cta_url' ), 'primary' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo dairyfarm_button( dairyfarm_mod( 'header_cta_label' ), dairyfarm_mod( 'header_cta_url' ), 'primary', 'arrow-right' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php if ( $dairyfarm_phone ) : ?>
+					<a class="df-header-call" href="<?php echo esc_attr( $dairyfarm_tel ); ?>">
+						<span class="df-header-call__icon"><?php echo dairyfarm_icon( 'phone' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+						<span><small><?php esc_html_e( 'Call the farm', 'dairyfarm' ); ?></small><?php echo esc_html( $dairyfarm_phone ); ?></span>
+					</a>
+				<?php endif; ?>
 			</div>
 		</nav>
 
 		<div class="df-header__actions">
-			<?php echo dairyfarm_button( dairyfarm_mod( 'header_cta_label' ), dairyfarm_mod( 'header_cta_url' ), 'primary' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php if ( $dairyfarm_phone ) : ?>
+				<a class="df-header-call df-header-call--desktop" href="<?php echo esc_attr( $dairyfarm_tel ); ?>">
+					<span class="df-header-call__icon"><?php echo dairyfarm_icon( 'phone' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+					<span><small><?php esc_html_e( 'Call the farm', 'dairyfarm' ); ?></small><?php echo esc_html( $dairyfarm_phone ); ?></span>
+				</a>
+			<?php endif; ?>
+			<?php echo dairyfarm_button( dairyfarm_mod( 'header_cta_label' ), dairyfarm_mod( 'header_cta_url' ), 'primary', 'arrow-right' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<button class="df-nav-toggle" type="button" aria-controls="df-nav" aria-expanded="false" data-nav-toggle>
 				<span class="df-nav-toggle__open"><?php echo dairyfarm_icon( 'menu' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 				<span class="df-nav-toggle__close"><?php echo dairyfarm_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>

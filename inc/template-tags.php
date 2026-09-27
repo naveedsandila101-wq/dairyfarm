@@ -97,6 +97,51 @@ function dairyfarm_menu_fallback() {
 }
 
 /**
+ * Footer column links used until a menu is assigned to the location, so the footer never
+ * has empty gaps: home section anchors for "footer", product categories for "footer2".
+ *
+ * @param string $location Menu location.
+ * @return string List markup, or '' when there is nothing to show.
+ */
+function dairyfarm_footer_fallback_links( $location ) {
+	$links = array();
+
+	if ( 'footer' === $location ) {
+		$links = array(
+			__( 'About Us', 'dairyfarm' )     => '#about',
+			__( 'Our Products', 'dairyfarm' ) => '#products',
+			__( 'How We Farm', 'dairyfarm' )  => '#process',
+			__( 'Farm Gallery', 'dairyfarm' ) => '#gallery',
+			__( 'Reviews', 'dairyfarm' )      => '#reviews',
+			__( 'FAQs', 'dairyfarm' )         => '#faq',
+		);
+	} elseif ( 'footer2' === $location ) {
+		$terms = get_terms(
+			array(
+				'taxonomy'   => 'df_product_cat',
+				'hide_empty' => false,
+				'number'     => 6,
+			)
+		);
+		foreach ( is_array( $terms ) ? $terms : array() as $term ) {
+			$links[ $term->name ] = get_term_link( $term );
+		}
+		if ( ! $links && post_type_exists( 'df_product' ) ) {
+			$links[ __( 'All Products', 'dairyfarm' ) ] = get_post_type_archive_link( 'df_product' );
+		}
+	}
+
+	$items = '';
+	foreach ( $links as $label => $url ) {
+		if ( $url && ! is_wp_error( $url ) ) {
+			$items .= sprintf( '<li><a href="%1$s">%2$s</a></li>', esc_url( dairyfarm_link( $url ) ), esc_html( $label ) );
+		}
+	}
+
+	return $items ? '<ul class="df-footer__links">' . $items . '</ul>' : '';
+}
+
+/**
  * Footer copyright line.
  *
  * @return string

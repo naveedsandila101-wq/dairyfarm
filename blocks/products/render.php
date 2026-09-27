@@ -77,7 +77,7 @@ $dairyfarm_filters = $attributes['showFilters'] && ! $attributes['category'] && 
 							if ( has_post_thumbnail() ) {
 								the_post_thumbnail( 'dairyfarm-card', array( 'sizes' => '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw' ) );
 							} else {
-								echo dairyfarm_image( array(), 'dairyfarm-card' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo dairyfarm_image( dairyfarm_with_dummy( array(), dairyfarm_product_dummy( $dairyfarm_id ), get_the_title() ), 'dairyfarm-card' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							}
 							?>
 							<?php if ( $dairyfarm_badge ) : ?>

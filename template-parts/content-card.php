@@ -15,7 +15,7 @@ $dairyfarm_cats = 'post' === get_post_type() ? get_the_category() : array();
 		if ( has_post_thumbnail() ) {
 			the_post_thumbnail( 'dairyfarm-card', array( 'sizes' => '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw' ) );
 		} else {
-			echo dairyfarm_image( array(), 'dairyfarm-card' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo dairyfarm_image( dairyfarm_with_dummy( array(), 'pasture' ), 'dairyfarm-card' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		?>
 	</a>

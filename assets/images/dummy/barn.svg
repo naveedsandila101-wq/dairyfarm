@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d9a8"/><stop offset="1" stop-color="#f8f5ec"/></linearGradient>
+	</defs>
+	<rect width="900" height="1100" fill="url(#sky)"/>
+	<circle cx="680" cy="260" r="90" fill="#f2c14e"/>
+	<path d="M0 660C200 580 460 600 900 620V1100H0z" fill="#9fd08f"/>
+	<rect x="600" y="360" width="120" height="360" fill="#d8d3c6"/>
+	<path d="M600 360a60 60 0 0 1 120 0z" fill="#8f8a7c"/>
+	<g stroke="#b9b3a3" stroke-width="4"><path d="M600 450h120M600 540h120M600 630h120"/></g>
+	<path d="M160 470L360 330L560 470V760H160z" fill="#b8412f"/>
+	<path d="M130 490L360 310L590 490" fill="none" stroke="#f8f5ec" stroke-width="22" stroke-linejoin="round"/>
+	<rect x="290" y="560" width="140" height="200" fill="#8e2f21"/>
+	<path d="M290 560l140 200M430 560l-140 200" stroke="#f8f5ec" stroke-width="10"/>
+	<rect x="290" y="560" width="140" height="200" fill="none" stroke="#f8f5ec" stroke-width="10"/>
+	<rect x="325" y="410" width="70" height="70" fill="#f8f5ec"/>
+	<path d="M360 410v70M325 445h70" stroke="#b8412f" stroke-width="6"/>
+	<path d="M0 760C260 720 620 740 900 730V1100H0z" fill="#6fb35f"/>
+	<path d="M0 900C300 860 600 880 900 870V1100H0z" fill="#2e8b3e"/>
+	<g fill="#1e6b2d"><path d="M100 990l10 -40 10 40zM420 1030l10 -46 10 46zM760 980l10 -40 10 40z"/></g>
+</svg>

@@ -137,7 +137,7 @@ add_filter( 'block_categories_all', 'dairyfarm_block_category' );
  * @return string
  */
 function dairyfarm_home_page_markup() {
-	$sections = array( 'hero', 'features', 'about', 'products', 'process', 'stats', 'gallery', 'testimonials', 'faq', 'cta' );
+	$sections = dairyfarm_home_sections();
 
 	return implode(
 		"\n\n",

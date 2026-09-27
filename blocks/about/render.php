@@ -16,7 +16,7 @@ $dairyfarm_has_sub  = ! empty( $attributes['imageSecondary']['id'] ) || ! empty(
 	<div class="df-container df-split">
 		<div class="df-about__media" data-reveal>
 			<div class="df-about__frame">
-				<?php echo dairyfarm_image( $attributes['image'], 'large', array( 'sizes' => '(min-width: 1024px) 40vw, 100vw' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo dairyfarm_image( dairyfarm_with_dummy( $attributes['image'], 'barn', __( 'The family barn', 'dairyfarm' ) ), 'large', array( 'sizes' => '(min-width: 1024px) 40vw, 100vw' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 
 			<?php if ( $dairyfarm_has_sub ) : ?>

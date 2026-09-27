@@ -80,6 +80,50 @@ function dairyfarm_image( $image, $size = 'large', $attr = array() ) {
 }
 
 /**
+ * Returns the image attribute unchanged when one has been chosen, otherwise a bundled
+ * dummy illustration from assets/images/dummy/ so the page never looks unfinished.
+ *
+ * @param array|null $image Image attribute ({ id, url, alt }).
+ * @param string     $name  Dummy file name without extension, e.g. "pasture".
+ * @param string     $alt   Alt text for the dummy image.
+ * @return array
+ */
+function dairyfarm_with_dummy( $image, $name, $alt = '' ) {
+	if ( is_array( $image ) && ( ! empty( $image['id'] ) || ! empty( $image['url'] ) ) ) {
+		return $image;
+	}
+
+	$name = sanitize_file_name( $name );
+	if ( ! file_exists( DAIRYFARM_DIR . '/assets/images/dummy/' . $name . '.svg' ) ) {
+		$name = 'pasture';
+	}
+
+	return array(
+		'url' => DAIRYFARM_URI . '/assets/images/dummy/' . $name . '.svg',
+		'alt' => $alt,
+	);
+}
+
+/**
+ * Dummy illustration name for a product, based on its first category.
+ *
+ * @param int $post_id Product ID.
+ * @return string
+ */
+function dairyfarm_product_dummy( $post_id ) {
+	$map   = array(
+		'milk'   => 'bottles',
+		'cheese' => 'cheese',
+		'butter' => 'butter',
+		'yogurt' => 'yogurt',
+	);
+	$terms = get_the_terms( $post_id, 'df_product_cat' );
+	$slug  = is_array( $terms ) && $terms ? $terms[0]->slug : '';
+
+	return isset( $map[ $slug ] ) ? $map[ $slug ] : 'bottles';
+}
+
+/**
  * Renders a link styled as a button. Returns an empty string when label or URL is missing.
  *
  * @param string $label   Button label.

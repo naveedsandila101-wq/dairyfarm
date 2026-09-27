@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="steel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9aa6a0"/><stop offset=".45" stop-color="#eef2f0"/><stop offset="1" stop-color="#8a958f"/></linearGradient>
+	</defs>
+	<rect width="1200" height="900" fill="#eef6ee"/>
+	<rect y="660" width="1200" height="240" fill="#cfd8d2"/>
+	<g fill="#fff" stroke="#d6ded8" stroke-width="4">
+		<rect x="80" y="90" width="220" height="160" rx="10"/><rect x="900" y="90" width="220" height="160" rx="10"/>
+	</g>
+	<path d="M190 90v160M80 170h220M1010 90v160M900 170h220" stroke="#d6ded8" stroke-width="4"/>
+	<g>
+		<rect x="200" y="300" width="260" height="380" rx="120" fill="url(#steel)"/>
+		<rect x="520" y="260" width="260" height="420" rx="120" fill="url(#steel)"/>
+		<rect x="840" y="320" width="220" height="360" rx="100" fill="url(#steel)"/>
+	</g>
+	<g stroke="#6f7a74" stroke-width="12" fill="none" stroke-linecap="round">
+		<path d="M330 300v-80h320v40M950 320v-100H650"/>
+		<path d="M240 680v60M420 680v60M560 680v60M740 680v60M870 680v60M1030 680v60"/>
+	</g>
+	<g fill="#2e8b3e"><circle cx="330" cy="470" r="26"/><circle cx="650" cy="450" r="26"/><circle cx="950" cy="480" r="22"/></g>
+	<g fill="#fff"><circle cx="330" cy="470" r="10"/><circle cx="650" cy="450" r="10"/><circle cx="950" cy="480" r="8"/></g>
+</svg>

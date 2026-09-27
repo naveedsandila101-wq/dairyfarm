@@ -20,6 +20,7 @@ $dairyfarm_includes = array(
 	'inc/post-types.php',
 	'inc/meta-boxes.php',
 	'inc/blocks.php',
+	'inc/home-sections.php',
 	'inc/template-tags.php',
 	'inc/schema.php',
 	'inc/demo-import.php',

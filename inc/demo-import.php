@@ -88,8 +88,13 @@ function dairyfarm_demo_page( $title, $slug, $content = '' ) {
  */
 function dairyfarm_demo_import() {
 	// Pages.
-	$home_id = dairyfarm_demo_page( __( 'Home', 'dairyfarm' ), 'home', dairyfarm_home_page_markup() );
+	$home_id = dairyfarm_demo_page( __( 'Home', 'dairyfarm' ), 'home' );
 	$blog_id = dairyfarm_demo_page( __( 'News', 'dairyfarm' ), 'news' );
+
+	// An empty home page gets the meta box template; pages with existing content are left alone.
+	if ( '' === trim( (string) get_post_field( 'post_content', $home_id ) ) && ! get_page_template_slug( $home_id ) ) {
+		update_post_meta( $home_id, '_wp_page_template', DAIRYFARM_HOME_TEMPLATE );
+	}
 
 	update_option( 'show_on_front', 'page' );
 	update_option( 'page_on_front', $home_id );

@@ -7,13 +7,22 @@ Custom, dependency-free theme (no ACF, no page builder, no build step). Requires
 1. Copy `wp-content/themes/dairyfarm` into your site's `wp-content/themes/`.
 2. Activate **Appearance → Themes → Dairyfarm**.
 3. Click **Set up demo home page** in the admin notice. This creates the Home and News pages, menus, 6 sample products and 3 reviews. It never overwrites existing content.
-4. Replace the image placeholders: edit the Home page, select a section, and choose images in the right-hand sidebar.
+4. Replace the dummy images: edit the Home page, open a section in **Home Page Sections**, and choose images.
+
+## Home page: two ways to build it
+
+- **Home Page template (meta boxes).** Create a page and choose the **Home Page (sections in meta boxes)** template, then save. The block editor is replaced by a **Home Page Sections** box. It has one panel per section, and each panel has a show/hide switch, all the section's fields, repeaters for lists, and a background and anchor setting. Unsaved fields use the section defaults, so the page looks complete straight away. The demo importer uses this template.
+- **Blocks.** On any other page, insert sections from the "Dairy Farm Sections" block category, or use the "Complete Home Page" pattern.
+
+Both use the same `block.json` field schema and `render.php`, so a section looks the same either way.
+
+Any image left empty shows a bundled dummy illustration from `assets/images/dummy/`. This covers the hero, about, gallery, products without a featured image, and post cards.
 
 ## Where content is edited
 
 | What | Where |
 | --- | --- |
-| Home page sections (order, copy, images, buttons, background) | **Pages → Home** (block editor, "Dairy Farm Sections" category) |
+| Home page sections (copy, images, buttons, background, show/hide) | **Pages → Home** → **Home Page Sections** meta box (Home Page template) |
 | Products (image, price, unit, badge, category, order link) | **Products** |
 | Customer reviews (name, photo, rating, headline, role) | **Reviews** |
 | Top bar, header button, phone, email, address, hours, social links, footer text | **Appearance → Customize → Dairyfarm Theme Options** |

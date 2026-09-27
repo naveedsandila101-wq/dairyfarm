@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+	<rect width="1200" height="900" fill="#eef6ee"/>
+	<circle cx="600" cy="450" r="320" fill="#e3f1e4"/>
+	<ellipse cx="600" cy="700" rx="300" ry="40" fill="#cfdcd2"/>
+	<path d="M400 360h400l-40 320c-4 20 -20 30 -40 30H480c-20 0 -36 -10 -40 -30z" fill="#fff" stroke="#cfdcd2" stroke-width="6"/>
+	<ellipse cx="600" cy="360" rx="200" ry="44" fill="#fdfbf3" stroke="#cfdcd2" stroke-width="6"/>
+	<path d="M470 350c40 -30 90 -10 130 -20s90 -20 120 10c-60 30 -190 30 -250 10z" fill="#fff"/>
+	<g fill="#b8412f"><circle cx="560" cy="340" r="16"/><circle cx="640" cy="336" r="13"/><circle cx="600" cy="350" r="11"/></g>
+	<path d="M650 320l30 -30" stroke="#6fb35f" stroke-width="10" stroke-linecap="round"/>
+	<rect x="440" y="480" width="320" height="110" fill="#2e8b3e"/>
+	<path d="M570 535c14 -26 46 -26 60 0c-14 26 -46 26 -60 0z" fill="#fff"/>
+	<g transform="translate(760 330) rotate(35)">
+		<rect x="0" y="-10" width="220" height="20" rx="10" fill="#c8ced0"/>
+		<ellipse cx="0" cy="0" rx="40" ry="26" fill="#dfe6e1"/>
+	</g>
+</svg>

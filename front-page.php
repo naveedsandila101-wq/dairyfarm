@@ -14,6 +14,12 @@ if ( 'page' !== get_option( 'show_on_front' ) ) {
 	return;
 }
 
+// front-page.php outranks page templates, so hand over to the Home Page template explicitly.
+if ( dairyfarm_is_home_template( get_queried_object_id() ) ) {
+	require DAIRYFARM_DIR . '/' . DAIRYFARM_HOME_TEMPLATE;
+	return;
+}
+
 get_header();
 
 while ( have_posts() ) :

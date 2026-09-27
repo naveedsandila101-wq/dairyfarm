@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMid slice">
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe8f3"/><stop offset="1" stop-color="#f8f5ec"/></linearGradient>
+		<g id="cow">
+			<rect x="-6" y="40" width="16" height="70" rx="6" fill="#2b2b2b"/>
+			<rect x="30" y="40" width="16" height="70" rx="6" fill="#2b2b2b"/>
+			<rect x="130" y="40" width="16" height="70" rx="6" fill="#2b2b2b"/>
+			<rect x="166" y="40" width="16" height="70" rx="6" fill="#2b2b2b"/>
+			<ellipse cx="88" cy="20" rx="110" ry="62" fill="#fff"/>
+			<path d="M40 -20c30 -6 40 30 14 46c-26 14 -52 -10 -40 -30z" fill="#2b2b2b"/>
+			<path d="M120 0c24 -10 50 10 38 36c-12 20 -44 12 -46 -8z" fill="#2b2b2b"/>
+			<ellipse cx="96" cy="66" rx="22" ry="12" fill="#f4b6b6"/>
+			<path d="M196 0c16 20 14 50 10 70" stroke="#2b2b2b" stroke-width="6" fill="none" stroke-linecap="round"/>
+			<ellipse cx="-30" cy="-6" rx="36" ry="44" fill="#fff"/>
+			<ellipse cx="-34" cy="26" rx="28" ry="18" fill="#f4b6b6"/>
+			<circle cx="-44" cy="-14" r="5" fill="#1b2420"/>
+			<circle cx="-16" cy="-14" r="5" fill="#1b2420"/>
+			<path d="M-62 -40l-18 -14 22 2z M2 -40l18 -14 -22 2z" fill="#d9cfb8"/>
+		</g>
+	</defs>
+	<rect width="1600" height="1200" fill="url(#sky)"/>
+	<circle cx="1260" cy="230" r="110" fill="#f2c14e"/>
+	<circle cx="1260" cy="230" r="160" fill="#f2c14e" opacity=".18"/>
+	<g fill="#fff" opacity=".9">
+		<ellipse cx="320" cy="200" rx="120" ry="34"/><ellipse cx="400" cy="180" rx="80" ry="40"/>
+		<ellipse cx="900" cy="150" rx="100" ry="28"/><ellipse cx="960" cy="134" rx="60" ry="30"/>
+	</g>
+	<path d="M0 640C260 520 520 560 800 620S1340 540 1600 580V1200H0z" fill="#9fd08f"/>
+	<path d="M0 760C300 660 640 720 960 760S1420 700 1600 720V1200H0z" fill="#6fb35f"/>
+	<path d="M0 900C400 820 860 880 1600 850V1200H0z" fill="#2e8b3e"/>
+	<g stroke="#8a6a44" stroke-width="10" stroke-linecap="round">
+		<path d="M60 760v-110M220 740v-110M380 732v-110M540 740v-110" />
+		<path d="M50 670h500M50 710h500" stroke-width="7"/>
+	</g>
+	<use href="#cow" transform="translate(760 730) scale(1.35)"/>
+	<use href="#cow" transform="translate(1280 690) scale(-.9 .9)"/>
+	<g fill="#1e6b2d">
+		<path d="M140 1060l10 -40 10 40zM420 1100l10 -46 10 46zM980 1080l10 -40 10 40zM1400 1110l10 -44 10 44z"/>
+	</g>
+</svg>

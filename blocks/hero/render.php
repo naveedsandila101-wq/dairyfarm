@@ -9,6 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $dairyfarm_layout = 'cover' === $attributes['layout'] ? 'cover' : 'split';
+$dairyfarm_image  = dairyfarm_with_dummy( $attributes['image'], 'pasture', __( 'Cows grazing on a green pasture', 'dairyfarm' ) );
 $dairyfarm_img    = array(
 	'loading'       => 'eager',
 	'fetchpriority' => 'high',
@@ -25,7 +26,7 @@ $dairyfarm_stats  = array_filter(
 <section <?php echo dairyfarm_section_attributes( $attributes, 'hero', $dairyfarm_layout ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( 'cover' === $dairyfarm_layout ) : ?>
 		<div class="df-hero__bg">
-			<?php echo dairyfarm_image( $attributes['image'], 'dairyfarm-hero', $dairyfarm_img ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php echo dairyfarm_image( $dairyfarm_image, 'dairyfarm-hero', $dairyfarm_img ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<span class="df-hero__overlay" style="opacity:<?php echo esc_attr( max( 0, min( 90, (int) $attributes['overlay'] ) ) / 100 ); ?>"></span>
 		</div>
 	<?php endif; ?>
@@ -64,7 +65,7 @@ $dairyfarm_stats  = array_filter(
 		<?php if ( 'split' === $dairyfarm_layout ) : ?>
 			<div class="df-hero__media" data-reveal>
 				<div class="df-hero__frame">
-					<?php echo dairyfarm_image( $attributes['image'], 'dairyfarm-hero', $dairyfarm_img ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo dairyfarm_image( $dairyfarm_image, 'dairyfarm-hero', $dairyfarm_img ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</div>
 				<?php if ( $attributes['badgeTitle'] ) : ?>
 					<div class="df-hero__badge">

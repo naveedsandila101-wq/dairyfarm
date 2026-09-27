@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/team",
+	"title": "Meet the Family / Team",
+	"category": "dairyfarm",
+	"icon": "groups",
+	"description": "Grid of team members with photo, role and a short bio.",
+	"keywords": [ "people", "staff", "family", "about" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Meet the Family" },
+		"heading": { "type": "string", "default": "The people behind your milk" },
+		"intro": { "type": "string", "default": "A small team of farmers, cheesemakers and delivery drivers who care about every bottle." },
+		"members": {
+			"type": "array",
+			"default": [
+				{ "image": {}, "name": "Thomas Miller", "role": "Founder & Head Farmer", "text": "Third-generation farmer who still starts every day with morning milking." },
+				{ "image": {}, "name": "Anna Miller", "role": "Herd Manager", "text": "Looks after the health and happiness of all 350 of our cows." },
+				{ "image": {}, "name": "Lucas Brown", "role": "Head Cheesemaker", "text": "Turns our fresh milk into award-winning cheddar and cultured butter." },
+				{ "image": {}, "name": "Grace Walker", "role": "Customer & Deliveries", "text": "Makes sure your order is on your doorstep before breakfast." }
+			]
+		}
+	},
+	"dairyfarm": {
+		"tone": "white",
+		"sectionId": "team",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "text", "label": "Heading" },
+			{ "key": "intro", "type": "textarea", "label": "Intro" },
+			{
+				"key": "members",
+				"type": "repeater",
+				"label": "Team members",
+				"itemLabel": "Member",
+				"titleKey": "name",
+				"max": 12,
+				"panel": "Team Members",
+				"fields": [
+					{ "key": "image", "type": "image", "label": "Photo (square)" },
+					{ "key": "name", "type": "text", "label": "Name" },
+					{ "key": "role", "type": "text", "label": "Role" },
+					{ "key": "text", "type": "textarea", "label": "Short bio" }
+				]
+			}
+		]
+	}
+}

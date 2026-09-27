@@ -1,22 +1,24 @@
-/* "Home Page Sections" meta box (inc/home-sections.php). */
+/* "Page Sections" meta box (inc/page-sections.php). */
 
-#dairyfarm-home-sections.df-home-hidden { display: none; }
+#dairyfarm-page-sections.df-sections-hidden,
+.df-sections[hidden],
+.df-sections-reload[hidden] { display: none; }
 
-.df-home-intro { margin: 0 0 8px; color: #50575e; }
-.df-home-intro--switch { font-style: italic; }
-body:not(.block-editor-page) .df-home-intro--switch { display: none; }
+.df-sections-intro { margin: 0 0 8px; color: #50575e; }
+.df-sections-intro--switch { font-style: italic; }
+body:not(.block-editor-page) .df-sections-intro--switch { display: none; }
 
-.df-home { display: grid; gap: 8px; margin-top: 12px; }
+.df-sections { display: grid; gap: 8px; margin-top: 12px; }
 
 /* Section panels. */
-.df-home-section {
+.df-sections__item {
 	background: #fff;
 	border: 1px solid #dcdcde;
 	border-left: 4px solid #2e8b3e;
 	border-radius: 4px;
 }
-.df-home-section.is-disabled { border-left-color: #c3c4c7; opacity: .75; }
-.df-home-section > summary {
+.df-sections__item.is-disabled { border-left-color: #c3c4c7; opacity: .75; }
+.df-sections__item > summary {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -25,7 +27,7 @@ body:not(.block-editor-page) .df-home-intro--switch { display: none; }
 	font-weight: 600;
 	cursor: pointer;
 }
-.df-home-section__off {
+.df-sections__off {
 	display: none;
 	padding: 2px 8px;
 	font-size: 11px;
@@ -34,12 +36,12 @@ body:not(.block-editor-page) .df-home-intro--switch { display: none; }
 	background: #f0f0f1;
 	border-radius: 10px;
 }
-.df-home-section.is-disabled .df-home-section__off { display: inline-block; }
-.df-home-section__body { padding: 4px 16px 16px; border-top: 1px solid #f0f0f1; }
-.df-home-toggle { margin: 12px 0; font-weight: 600; }
+.df-sections__item.is-disabled .df-sections__off { display: inline-block; }
+.df-sections__body { padding: 4px 16px 16px; border-top: 1px solid #f0f0f1; }
+.df-sections__toggle { margin: 12px 0; font-weight: 600; }
 
 /* Field groups. */
-.df-home-group {
+.df-sections__group {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 	gap: 14px 20px;
@@ -49,7 +51,7 @@ body:not(.block-editor-page) .df-home-intro--switch { display: none; }
 	border: 1px solid #e0e0e0;
 	border-radius: 4px;
 }
-.df-home-group > legend {
+.df-sections__group > legend {
 	padding: 0 6px;
 	font-size: 12px;
 	font-weight: 600;

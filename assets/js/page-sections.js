@@ -1,17 +1,28 @@
 /**
- * "Home Page Sections" meta box: template-aware visibility, image picker and repeaters.
- * Markup comes from inc/home-sections.php.
+ * "Page Sections" meta box: template-aware visibility, image picker and repeaters.
+ * Markup comes from inc/page-sections.php.
  */
 ( function ( $, cfg ) {
 	'use strict';
 
-	var BOX = '#dairyfarm-home-sections';
+	var BOX = '#dairyfarm-page-sections';
 	var counter = 0;
 
-	/* Show the box only while the Home Page template is selected. ------------ */
+	/* Show the box, and the matching field set, only for section templates. -- */
 
 	function toggleBox( template ) {
-		$( BOX ).toggleClass( 'df-home-hidden', template !== cfg.template );
+		var match = cfg.templates[ template ];
+		var $box = $( BOX );
+
+		$box.toggleClass( 'df-sections-hidden', ! match );
+		$box.find( '.df-sections' ).each( function () {
+			this.hidden = this.getAttribute( 'data-template' ) !== template;
+		} );
+		if ( match ) {
+			$box.find( '.hndle, .postbox-header h2' ).first().text( match.label );
+		}
+		// Switching between section templates on the classic screen: fields load after saving.
+		$box.find( '.df-sections-reload' ).prop( 'hidden', ! match || $box.find( '.df-sections[data-template="' + template + '"]' ).length > 0 );
 	}
 
 	// Classic edit screen (also used for pages already on the template).
@@ -34,8 +45,8 @@
 
 	/* Section on/off. -------------------------------------------------------- */
 
-	$( document ).on( 'change', '.df-home-enable', function () {
-		$( this ).closest( '.df-home-section' ).toggleClass( 'is-disabled', ! this.checked );
+	$( document ).on( 'change', '.df-sections__enable', function () {
+		$( this ).closest( '.df-sections__item' ).toggleClass( 'is-disabled', ! this.checked );
 	} );
 
 	/* Image picker. ---------------------------------------------------------- */
@@ -118,4 +129,4 @@
 			$( this ).closest( '.df-repeater__row' ).find( '> summary .df-repeater__title' ).text( this.value );
 		}
 	} );
-}( jQuery, window.dairyfarmHome ) );
+}( jQuery, window.dairyfarmSections ) );

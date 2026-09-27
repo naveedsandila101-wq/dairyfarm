@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DAIRYFARM_VERSION', '1.1.0' );
+define( 'DAIRYFARM_VERSION', '1.2.0' );
 define( 'DAIRYFARM_DIR', get_template_directory() );
 define( 'DAIRYFARM_URI', get_template_directory_uri() );
 
@@ -20,7 +20,8 @@ $dairyfarm_includes = array(
 	'inc/post-types.php',
 	'inc/meta-boxes.php',
 	'inc/blocks.php',
-	'inc/home-sections.php',
+	'inc/page-sections.php',
+	'inc/contact-form.php',
 	'inc/template-tags.php',
 	'inc/schema.php',
 	'inc/demo-import.php',

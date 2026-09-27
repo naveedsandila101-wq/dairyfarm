@@ -6,23 +6,34 @@ Custom, dependency-free theme (no ACF, no page builder, no build step). Requires
 
 1. Copy `wp-content/themes/dairyfarm` into your site's `wp-content/themes/`.
 2. Activate **Appearance → Themes → Dairyfarm**.
-3. Click **Set up demo home page** in the admin notice. This creates the Home and News pages, menus, 6 sample products and 3 reviews. It never overwrites existing content.
-4. Replace the dummy images: edit the Home page, open a section in **Home Page Sections**, and choose images.
+3. Click **Set up demo home page** in the admin notice. This creates the Home, About Us, Contact Us and News pages, menus, 6 sample products and 3 reviews. It never overwrites existing content.
+4. Replace the dummy images: edit a page, open a section in its **Page Sections** box, and choose images.
 
-## Home page: two ways to build it
+## Section page templates (meta boxes)
 
-- **Home Page template (meta boxes).** Create a page and choose the **Home Page (sections in meta boxes)** template, then save. The block editor is replaced by a **Home Page Sections** box. It has one panel per section, and each panel has a show/hide switch, all the section's fields, repeaters for lists, and a background and anchor setting. Unsaved fields use the section defaults, so the page looks complete straight away. The demo importer uses this template.
-- **Blocks.** On any other page, insert sections from the "Dairy Farm Sections" block category, or use the "Complete Home Page" pattern.
+Create a page, choose one of these templates and save. The block editor is replaced by a **Page Sections** box. It has one panel per section, and each panel has a show/hide switch, all the section's fields, repeaters for lists, and a background and anchor setting. Unsaved fields use the template's defaults, so the page looks complete straight away.
 
-Both use the same `block.json` field schema and `render.php`, so a section looks the same either way.
+| Template | Sections |
+| --- | --- |
+| **Home Page** | Hero · Why Choose Us · About · Products · Process · Stats · Gallery · Reviews · FAQ · Call to Action |
+| **About Us** | Page Banner · Our Story · Stats · Our Values · Process · Meet the Family (team) · Reviews · Call to Action |
+| **Contact Us** | Page Banner · Contact cards, form and map · FAQ · Call to Action (hidden by default) |
 
-Any image left empty shows a bundled dummy illustration from `assets/images/dummy/`. This covers the hero, about, gallery, products without a featured image, and post cards.
+Templates and their default copy are defined in `dairyfarm_section_templates()` in `inc/page-sections.php` (filterable with `dairyfarm_section_templates`).
+
+The same sections are also blocks: on any other page, insert them from the "Dairy Farm Sections" block category, or use the "Complete Home Page" pattern. Both use the same `block.json` field schema and `render.php`, so a section looks the same either way.
+
+Any image left empty shows a bundled dummy illustration from `assets/images/dummy/`. This covers the hero, banners, about, gallery, team, products without a featured image, and post cards.
+
+## Contact form
+
+The Contact section has a built-in form (name, email, phone, subject, message). Messages are emailed with `wp_mail()` to the email in **Customize → Dairyfarm Theme Options → Business & Contact Details**, or the site admin email. It is protected by a nonce, a honeypot field and a limit of 5 messages per visitor every 10 minutes. Install an SMTP plugin for reliable delivery; local XAMPP installs usually cannot send mail. To use a form plugin instead, paste its shortcode into the section's **Form shortcode** field. The map uses a Google Maps embed of the Customizer address (no API key needed) or the section's **Map location**.
 
 ## Where content is edited
 
 | What | Where |
 | --- | --- |
-| Home page sections (copy, images, buttons, background, show/hide) | **Pages → Home** → **Home Page Sections** meta box (Home Page template) |
+| Home, About and Contact page sections (copy, images, buttons, background, show/hide) | **Pages → (page)** → **Page Sections** meta box |
 | Products (image, price, unit, badge, category, order link) | **Products** |
 | Customer reviews (name, photo, rating, headline, role) | **Reviews** |
 | Top bar, header button, phone, email, address, hours, social links, footer text | **Appearance → Customize → Dairyfarm Theme Options** |
@@ -31,7 +42,7 @@ Any image left empty shows a bundled dummy illustration from `assets/images/dumm
 
 ## Sections (blocks)
 
-Hero (split or full-bleed cover) · Why Choose Us · About Us · Our Products (with category filter) · Farm-to-Table Process · Stats Band · Farm Gallery (mosaic plus lightbox) · Customer Reviews · FAQ (adds FAQ schema) · CTA / Newsletter (takes any form shortcode).
+Hero (split or full-bleed cover) · Page Banner (inner pages) · Why Choose Us · About Us · Our Products (with category filter) · Farm-to-Table Process · Stats Band · Farm Gallery (mosaic plus lightbox) · Customer Reviews · FAQ (adds FAQ schema) · Meet the Family / Team · Contact Details & Form (with map) · CTA / Newsletter (takes any form shortcode).
 
 Every section has **Section Settings**: a background tone (white, cream, mint, dark, brand) and an anchor ID for menu links such as `#products`.
 

@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/page-banner",
+	"title": "Page Banner",
+	"category": "dairyfarm",
+	"icon": "align-wide",
+	"description": "Inner-page hero with breadcrumbs, title, intro, buttons and an image.",
+	"keywords": [ "header", "title", "banner", "hero" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false, "multiple": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"showBreadcrumbs": { "type": "boolean", "default": true },
+		"eyebrow": { "type": "string", "default": "Welcome" },
+		"heading": { "type": "string", "default": "" },
+		"text": { "type": "string", "default": "Fresh, honest dairy from our family farm to your table." },
+		"primaryLabel": { "type": "string", "default": "" },
+		"primaryUrl": { "type": "string", "default": "" },
+		"image": { "type": "object", "default": {} },
+		"dummy": { "type": "string", "default": "barn" },
+		"badgeValue": { "type": "string", "default": "Since 1987" },
+		"badgeLabel": { "type": "string", "default": "Family owned & run" }
+	},
+	"dairyfarm": {
+		"tone": "mint",
+		"sectionId": "",
+		"fields": [
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label" },
+			{ "key": "heading", "type": "textarea", "label": "Heading", "help": "Leave empty to use the page title. Wrap words in <span>…</span> to highlight them in brand green.", "rows": 2 },
+			{ "key": "text", "type": "textarea", "label": "Intro text", "rows": 3 },
+			{ "key": "showBreadcrumbs", "type": "toggle", "label": "Show breadcrumbs" },
+			{ "key": "primaryLabel", "type": "text", "label": "Button label (optional)", "panel": "Button" },
+			{ "key": "primaryUrl", "type": "url", "label": "Button link", "panel": "Button" },
+			{ "key": "image", "type": "image", "label": "Banner image", "help": "Landscape works best.", "panel": "Image" },
+			{ "key": "badgeValue", "type": "text", "label": "Image badge value", "help": "Clear to hide the badge.", "panel": "Image" },
+			{ "key": "badgeLabel", "type": "text", "label": "Image badge label", "panel": "Image" }
+		]
+	}
+}

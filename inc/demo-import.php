@@ -88,12 +88,17 @@ function dairyfarm_demo_page( $title, $slug, $content = '' ) {
  */
 function dairyfarm_demo_import() {
 	// Pages.
-	$home_id = dairyfarm_demo_page( __( 'Home', 'dairyfarm' ), 'home' );
-	$blog_id = dairyfarm_demo_page( __( 'News', 'dairyfarm' ), 'news' );
+	$home_id    = dairyfarm_demo_page( __( 'Home', 'dairyfarm' ), 'home' );
+	$about_id   = dairyfarm_demo_page( __( 'About Us', 'dairyfarm' ), 'about' );
+	$contact_id = dairyfarm_demo_page( __( 'Contact Us', 'dairyfarm' ), 'contact' );
+	$blog_id    = dairyfarm_demo_page( __( 'News', 'dairyfarm' ), 'news' );
 
-	// An empty home page gets the meta box template; pages with existing content are left alone.
-	if ( '' === trim( (string) get_post_field( 'post_content', $home_id ) ) && ! get_page_template_slug( $home_id ) ) {
-		update_post_meta( $home_id, '_wp_page_template', DAIRYFARM_HOME_TEMPLATE );
+	// Empty pages get their section template; pages with existing content are left alone.
+	$templates = dairyfarm_section_templates();
+	foreach ( array( 'home' => $home_id, 'about' => $about_id, 'contact' => $contact_id ) as $key => $page_id ) {
+		if ( '' === trim( (string) get_post_field( 'post_content', $page_id ) ) && ! get_page_template_slug( $page_id ) ) {
+			update_post_meta( $page_id, '_wp_page_template', $templates[ $key ]['file'] );
+		}
 	}
 
 	update_option( 'show_on_front', 'page' );
@@ -170,7 +175,7 @@ function dairyfarm_demo_import() {
 		}
 	}
 
-	dairyfarm_demo_menus( $blog_id );
+	dairyfarm_demo_menus( $blog_id, $about_id, $contact_id );
 
 	return $home_id;
 }
@@ -178,9 +183,11 @@ function dairyfarm_demo_import() {
 /**
  * Creates and assigns menus when the locations are empty.
  *
- * @param int $blog_id Blog page ID.
+ * @param int $blog_id    Blog page ID.
+ * @param int $about_id   About Us page ID.
+ * @param int $contact_id Contact Us page ID.
  */
-function dairyfarm_demo_menus( $blog_id ) {
+function dairyfarm_demo_menus( $blog_id, $about_id, $contact_id ) {
 	$locations = get_theme_mod( 'nav_menu_locations', array() );
 
 	$menus = array(
@@ -188,22 +195,23 @@ function dairyfarm_demo_menus( $blog_id ) {
 			__( 'Main Menu', 'dairyfarm' ),
 			array(
 				array( __( 'Home', 'dairyfarm' ), home_url( '/' ) ),
-				array( __( 'About', 'dairyfarm' ), '#about' ),
+				array( __( 'About Us', 'dairyfarm' ), get_permalink( $about_id ) ),
 				array( __( 'Products', 'dairyfarm' ), '#products' ),
 				array( __( 'Our Process', 'dairyfarm' ), '#process' ),
 				array( __( 'Gallery', 'dairyfarm' ), '#gallery' ),
-				array( __( 'Reviews', 'dairyfarm' ), '#reviews' ),
 				array( __( 'News', 'dairyfarm' ), get_permalink( $blog_id ) ),
+				array( __( 'Contact', 'dairyfarm' ), get_permalink( $contact_id ) ),
 			),
 		),
 		'footer'  => array(
 			__( 'Footer Quick Links', 'dairyfarm' ),
 			array(
-				array( __( 'About Us', 'dairyfarm' ), '#about' ),
+				array( __( 'About Us', 'dairyfarm' ), get_permalink( $about_id ) ),
 				array( __( 'How We Farm', 'dairyfarm' ), '#process' ),
 				array( __( 'Farm Gallery', 'dairyfarm' ), '#gallery' ),
 				array( __( 'FAQs', 'dairyfarm' ), '#faq' ),
 				array( __( 'News', 'dairyfarm' ), get_permalink( $blog_id ) ),
+				array( __( 'Contact Us', 'dairyfarm' ), get_permalink( $contact_id ) ),
 			),
 		),
 		'footer2' => array(

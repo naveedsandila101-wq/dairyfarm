@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dairyfarm/contact",
+	"title": "Contact Details & Form",
+	"category": "dairyfarm",
+	"icon": "email-alt",
+	"description": "Contact cards (phone, email, address, hours), a contact form and a map.",
+	"keywords": [ "contact", "form", "map", "email", "phone" ],
+	"textdomain": "dairyfarm",
+	"supports": { "html": false, "multiple": false },
+	"editorScript": "dairyfarm-blocks-editor",
+	"render": "file:./render.php",
+	"attributes": {
+		"showDetails": { "type": "boolean", "default": true },
+		"eyebrow": { "type": "string", "default": "Get in Touch" },
+		"heading": { "type": "string", "default": "Send us a message" },
+		"intro": { "type": "string", "default": "Fill in the form and we will get back to you within one working day. For urgent delivery questions, please call us." },
+		"formShortcode": { "type": "string", "default": "" },
+		"submitLabel": { "type": "string", "default": "Send Message" },
+		"successMessage": { "type": "string", "default": "Thank you! Your message has been sent. We will reply within one working day." },
+		"showMap": { "type": "boolean", "default": true },
+		"mapAddress": { "type": "string", "default": "" }
+	},
+	"dairyfarm": {
+		"tone": "white",
+		"sectionId": "get-in-touch",
+		"fields": [
+			{ "key": "showDetails", "type": "toggle", "label": "Show contact cards (phone, email, address, hours)" },
+			{ "key": "eyebrow", "type": "text", "label": "Eyebrow label", "panel": "Form" },
+			{ "key": "heading", "type": "text", "label": "Form heading", "panel": "Form" },
+			{ "key": "intro", "type": "textarea", "label": "Form intro", "panel": "Form" },
+			{ "key": "submitLabel", "type": "text", "label": "Submit button label", "panel": "Form" },
+			{ "key": "successMessage", "type": "textarea", "label": "Message shown after sending", "rows": 2, "panel": "Form" },
+			{ "key": "formShortcode", "type": "text", "label": "Form shortcode (optional)", "help": "Paste a form plugin shortcode, e.g. [contact-form-7 id=\"123\"], to replace the built-in form.", "panel": "Form" },
+			{ "key": "showMap", "type": "toggle", "label": "Show map", "panel": "Map" },
+			{ "key": "mapAddress", "type": "text", "label": "Map location", "help": "Address or place name for the map. Leave empty to use the address from the Customizer.", "panel": "Map" }
+		]
+	}
+}

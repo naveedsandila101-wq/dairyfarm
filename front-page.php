@@ -14,9 +14,9 @@ if ( 'page' !== get_option( 'show_on_front' ) ) {
 	return;
 }
 
-// front-page.php outranks page templates, so hand over to the Home Page template explicitly.
-if ( dairyfarm_is_home_template( get_queried_object_id() ) ) {
-	require DAIRYFARM_DIR . '/' . DAIRYFARM_HOME_TEMPLATE;
+// front-page.php outranks page templates, so hand over to a section template explicitly.
+if ( dairyfarm_page_section_template( get_queried_object_id() ) ) {
+	dairyfarm_section_template_body();
 	return;
 }
 
